@@ -3,104 +3,104 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
-}
-
-.container {
+  }
+  
+  .container {
     max-width: 800px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar {
+  }
+  
+  .navbar {
     background-color: #333;
     padding: 10px 0;
-}
-
-.navbar .container {
+  }
+  
+  .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     color: #fff;
-}
-
-.navbar a {
+  }
+  
+  .navbar a {
     color: #fff;
     text-decoration: none;
     margin-left: 10px;
-}
-
-.navbar a:hover {
+  }
+  
+  .navbar a:hover {
     text-decoration: underline;
-}
-
-.projects {
+  }
+  
+  .projects {
     display: flex;
-}
-
-.index {
+  }
+  
+  .index {
     flex: 1;
-}
-
-.index h3 {
+  }
+  
+  .index h3 {
     margin-bottom: 10px;
-}
-
-.index ul {
+  }
+  
+  .index ul {
     list-style-type: none;
     padding: 0;
-}
-
-.index li {
+  }
+  
+  .index li {
     margin-bottom: 10px;
-}
-
-.content {
+  }
+  
+  .content {
     flex: 3;
-}
-
-.content form {
+  }
+  
+  .content form {
     max-width: 400px;
-}
-
-/* Styles for blog posts */
-.blog {
+  }
+  
+  /* Styles for blog posts */
+  .blog {
     padding: 20px 0;
-}
-
-.post {
+  }
+  
+  .post {
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
-}
-
-.post h2 {
+  }
+  
+  .post h2 {
     font-size: 24px;
     margin-bottom: 10px;
-}
-
-.date {
+  }
+  
+  .date {
     color: #777;
     font-size: 14px;
     margin-bottom: 10px;
-}
-
-.image {
+  }
+  
+  .image {
     height: 200px;
     margin-bottom: 20px;
-}
-
-.description {
+  }
+  
+  .description {
     margin-bottom: 20px;
-}
-
-.edit-btn {
+  }
+  
+  .edit-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -108,52 +108,52 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
-}
-
-.edit-form {
+  }
+  
+  .edit-form {
     display: none;
-}
-
-.edit-form form {
+  }
+  
+  .edit-form form {
     margin-top: 20px;
-}
-
-.edit-form input[type="text"],
-.edit-form textarea {
+  }
+  
+  .edit-form input[type="text"],
+  .edit-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-}
-
-.edit-form button {
+  }
+  
+  .edit-form button {
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-/* Styles for header */
-.header {
+  }
+  
+  /* Styles for header */
+  .header {
     background-color: #6a1b9a; /* Dark purple */
-    color: #01204E;
+    color: #fff;
     padding: 20px 0;
     text-align: center;
-}
-
-/* Styles for main content container */
-.container.main-content {
+  }
+  
+  /* Styles for main content container */
+  .container.main-content {
     max-width: 800px;
     margin: 20px auto;
     background-color: #f3e5f5; /* Light purple */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Styles for scroll-to-top button */
-.scroll-to-top {
+  }
+  
+  /* Styles for scroll-to-top button */
+  .scroll-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -167,14 +167,14 @@ body {
     font-size: 24px;
     text-decoration: none;
     display: none; /* Hidden by default */
-}
-
-.scroll-to-top:hover {
+  }
+  
+  .scroll-to-top:hover {
     background-color: #45a049; /* Darker green on hover */
-}
-
-/* Additional styles for register container */
-.register-container {
+  }
+  
+  /* Additional styles for register container */
+  .register-container {
     max-width: 400px;
     width: 100%;
     text-align: center;
@@ -182,4 +182,5 @@ body {
     padding: 20px;
     background-color: #e0e0e0; /* Light gray */
     border-radius: 8px;
-}
+  }
+  

@@ -10,28 +10,31 @@
   <header class="header">
     <div class="container">
       <h1>Welcome to My Website</h1>
+      <!-- Check if user is logged in -->
+      <?php if(isset($_SESSION['username'])): ?>
+        <!-- <p>Welcome, <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>! <a href="logout.php">Logout</a></p> -->
+        <p>Welcome, <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>! <button onclick="window.location.href='logout.php'">Logout</button></p>
+      <?php else: ?>
+        <!-- <form action="login.php" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a></p> -->
+        <form action="login.php" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Don't have an account? <button onclick="window.location.href='register.html'">Register here</button></p>
+      <?php endif; ?>
     </div>
   </header>
-  
-  <!-- Navigation menu for website layout -->
-  <div class="nav_menu">
-    <!-- Check if user is logged in -->
-    <?php if(isset($_SESSION['username'])): ?>
-      <p>Welcome, <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>! <button onclick="window.location.href='logout.php'">Logout</button></p>
-    <?php else: ?>
-      <form action="login.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit" class="btn">Login</button>
-      </form>
-      <p>Don't have an account? <button onclick="window.location.href='register.html'">Register here</button></p>
-    <?php endif; ?>
-  </div><br>
-
   <a href="#" class="scroll-to-top">&#8593;</a> <!-- Scroll to top button -->
-  
   <div class="container main-content">
     <!-- Content 1 -->
     <div class="blog" style="background-color: #f8bbd0;">
@@ -50,7 +53,6 @@
             <input type="file" name="project_image" accept="image/*" required>
             <button type="submit">Add Project</button>
           </form>
-        </div>
       </div>
     </div>
 
@@ -71,7 +73,6 @@
             <input type="file" name="project_image" accept="image/*" required>
             <button type="submit">Add Project</button>
           </form>
-        </div>
       </div>
     </div>
 
@@ -92,7 +93,6 @@
             <input type="file" name="project_image" accept="image/*" required>
             <button type="submit">Add Project</button>
           </form>
-        </div>
       </div>
     </div>
   </div>
@@ -127,6 +127,7 @@
         behavior: 'smooth'
       });
     });
+  
   </script>
 </body>
 </html>

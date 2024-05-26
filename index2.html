@@ -3,45 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Personal Blog</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
     <div class="container">
-      <h1>Welcome to My Website</h1>
+      <h1>My Personal Blog</h1>
+      <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+          echo "<p>Welcome, " . $_SESSION['firstname'] . " " . $_SESSION['lastname'] . "! <a href='logout.php'>Logout</a></p>";
+        } else {
+          echo "<a href='register.html'>Register</a>";
+          echo "<a href='index.html'>Login</a>";
+        }
+      ?>
     </div>
   </header>
-  
-  <!-- Navigation menu for website layout -->
-  <div class="nav_menu">
-    <!-- Check if user is logged in -->
-    <?php if(isset($_SESSION['username'])): ?>
-      <p>Welcome, <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>! <button onclick="window.location.href='logout.php'">Logout</button></p>
-    <?php else: ?>
-      <form action="login.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit" class="btn">Login</button>
-      </form>
-      <p>Don't have an account? <button onclick="window.location.href='register.html'">Register here</button></p>
-    <?php endif; ?>
-  </div><br>
-
   <a href="#" class="scroll-to-top">&#8593;</a> <!-- Scroll to top button -->
-  
   <div class="container main-content">
-    <!-- Content 1 -->
-    <div class="blog" style="background-color: #f8bbd0;">
+    <div class="blog">
       <div class="post">
-        <h2>Content 1 Title</h2>
-        <p class="date">May 25, 2024</p>
-        <div class="description">
-          <p>This is the content of the first blog post.</p>
-        </div>
-        <div class="image" style="background-image: url('path_to_image.jpg');"></div>
+        <h2>Project One</h2>
+        <p class="date">Posted on January 1, 2025</p>
+        <div class="image" style="background-color: #ffa07a;"></div>
+        <p class="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget pharetra neque, ac fermentum libero.
+          Sed nec ultricies magna. Duis nec velit auctor, fermentum metus id, volutpat libero.
+        </p>
         <button class="edit-btn">Edit</button>
         <div class="edit-form">
           <form action="add_project.php" method="POST" enctype="multipart/form-data">
@@ -52,17 +42,14 @@
           </form>
         </div>
       </div>
-    </div>
-
-    <!-- Content 2 -->
-    <div class="blog" style="background-color: #90caf9;">
       <div class="post">
-        <h2>Content 2 Title</h2>
-        <p class="date">May 24, 2024</p>
-        <div class="description">
-          <p>This is the content of the second blog post.</p>
-        </div>
-        <div class="image" style="background-image: url('path_to_image.jpg');"></div>
+        <h2>Project Two</h2>
+        <p class="date">Posted on January 2, 2025</p>
+        <div class="image" style="background-color: #87ceeb;"></div>
+        <p class="description">
+          Sed nec ultricies magna. Duis nec velit auctor, fermentum metus id, volutpat libero.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget pharetra neque, ac fermentum libero.
+        </p>
         <button class="edit-btn">Edit</button>
         <div class="edit-form">
           <form action="add_project.php" method="POST" enctype="multipart/form-data">
@@ -73,17 +60,15 @@
           </form>
         </div>
       </div>
-    </div>
-
-    <!-- Content 3 -->
-    <div class="blog" style="background-color: #c5e1a5;">
       <div class="post">
-        <h2>Content 3 Title</h2>
-        <p class="date">May 23, 2024</p>
-        <div class="description">
-          <p>This is the content of the third blog post.</p>
-        </div>
-        <div class="image" style="background-image: url('path_to_image.jpg');"></div>
+        <h2>Project Three</h2>
+        <p class="date">Posted on January 3, 2025</p>
+        <div class="image" style="background-color: #ffa500;"></div>
+        <p class="description">
+          Duis nec velit auctor, fermentum metus id, volutpat libero.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget pharetra neque, ac fermentum libero.
+          Sed nec ultricies magna.
+        </p>
         <button class="edit-btn">Edit</button>
         <div class="edit-form">
           <form action="add_project.php" method="POST" enctype="multipart/form-data">
@@ -97,11 +82,7 @@
     </div>
   </div>
 
-  <a href="#" class="scroll-to-top">↑</a>
-
   <script>
-    // Your JavaScript code goes here
-    
     // Script for showing/hiding edit forms
     const editButtons = document.querySelectorAll('.edit-btn');
     editButtons.forEach(button => {

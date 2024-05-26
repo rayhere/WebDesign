@@ -1,32 +1,34 @@
 <?php
-session_start();
-require_once('db.php');
+// Connect to database
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "dbname";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) && isset($_POST['password']) &&
-    !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-      
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $query = "SELECT * FROM users WHERE username='$username'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-      echo "Username already exists.";
-    } else {
-      $insert_query = "INSERT INTO users (firstname, lastname, username, password) VALUES ('$firstname', '$lastname', '$username', '$password')";
-      if (mysqli_query($conn, $insert_query)) {
-        $_SESSION['username'] = $username;
-        header("Location: index.html");
-        exit();
-      } else {
-        echo "Error: " . $insert_query . "<br>" . mysqli_error($conn);
-      }
-    }
-  } else {
-    echo "Please fill in all fields.";
-  }
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+
+// Retrieve form data
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Hash the password
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// Insert data into database
+$sql = "INSERT INTO users (firstname, lastname, username, password) VALUES ('$firstname', '$lastname', '$username', '$hashed_password')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 ?>
